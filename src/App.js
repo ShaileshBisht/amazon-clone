@@ -8,6 +8,7 @@ import { useEffect } from 'react';
 import { auth } from './firebase';
 import { useStateValue } from './StateProvider';
 import Footer from './Footer';
+import Payment from "./Payment";
 
 
 
@@ -44,6 +45,12 @@ function App() {
             <Route path="/checkout">
               <Header />
               <Checkout />
+              <Footer />
+            </Route>
+            <Route path="/payment">
+              <Header />
+              <Payment/>
+              <Footer />
             </Route>
             <Route path="/">
               <Header />
