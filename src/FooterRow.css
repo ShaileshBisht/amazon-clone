@@ -1,0 +1,15 @@
+.footerRow {
+  width: 100%;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.footerRow_heading {
+  color: white;
+  padding-bottom: 8px;
+}
+
+.footerRow_list > p {
+  color: white;
+  padding-bottom: 4px;
+}

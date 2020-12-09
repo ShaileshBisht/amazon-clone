@@ -1,9 +1,11 @@
-import { Link } from 'react-router-dom';
+import { Link , useHistory } from 'react-router-dom';
 import React,{useState} from 'react';
 import "./Login.css";
+import { auth } from './firebase';
 
 function Login() {
 
+    const history = useHistory();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -11,12 +13,27 @@ function Login() {
         e.preventDefault();
 
         // firebase login auth
+        auth.signInWithEmailAndPassword(email,password)
+        .then(auth => {
+            history.push("/");
+        })
+        .catch(error => alert(error.message))
     }
 
     const register = e => {
         e.preventDefault();
 
         //firebase register auth
+        auth.createUserWithEmailAndPassword(email, password)
+        .then((auth) => {
+            //successfully created to new user
+            console.log(auth);
+            if(auth){
+                history.push("/")
+            }
+        })
+        .catch(error => alert(error.message))
+
     }
 
     return (
